@@ -37,6 +37,14 @@ export default function reducer(state = initialState, action) {
         },
         ...action.parts
       };
+    case types.CLEAR_FIELD:
+    case types.CLEAR_PARTITION:
+      return {
+        ...state,
+        [action.partId]: {
+          id: action.partId
+        }
+      };
     default:
       return state;
   }

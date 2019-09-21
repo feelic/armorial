@@ -17,7 +17,6 @@ export function changePartition (partId, value) {
 export function createPartition (partId, value) {
   const partNb = partitions[value].partsNb;
 
-  console.log(partNb)
   return {
     type: 'CREATE_PARTITION',
     partId,
@@ -32,4 +31,16 @@ export function makeNewPart () {
       ...emptyPart,
       id: uuid()
     }
+}
+export function clearField (partId) {
+  return {
+    type: 'CLEAR_FIELD',
+    partId
+  }
+}
+export function clearPartition (partId) {
+  return {
+    type: 'CLEAR_PARTITION',
+    partId
+  }
 }
