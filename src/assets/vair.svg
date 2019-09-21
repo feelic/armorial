@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="720">
+<pattern patternUnits="userSpaceOnUse" width="80" height="160" id="p">
+<path fill="#2b5df2" stroke="#000" d="m0,80 20-20v-40l20-20 20,20v40l20,20h-.5z
+l20,20v40l20,20 20-20v-40l20-20h1v79.5H0"/></pattern>
+<rect width="600" height="720" fill="url(#p)"/>
+</svg>
