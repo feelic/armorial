@@ -1,3 +1,6 @@
+import ermine from '../assets/ermine.svg';
+import vair from '../assets/vair.svg';
+
 export const colours = {
   'gules':'#c04', 'azure':'#40d', 'vert':'#2a5', 'sable':'#333', 'purpure':'#a0e'
 };
@@ -5,7 +8,8 @@ export const metals = {
   'or':'#fd3', 'argent': '#f6f6ff'
 };
 export const furs = [
-  'ermine', 'vair'
+  ermine,
+  vair
 ];
 export const fields = {
   ...colours,

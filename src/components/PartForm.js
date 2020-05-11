@@ -1,5 +1,6 @@
 import React from 'react';
 import {fields, colours, metals, partitions} from '../constants';
+import ChargeForm from './ChargeForm';
 import styles from './PartForm.module.scss';
 
 export default function PartForm (props) {
@@ -18,6 +19,7 @@ export default function PartForm (props) {
     return <div className={styles.partForm}>
       <FieldForm actions={actions} armsParts={armsParts} part={part}/>
       <button onClick={() => actions.clearField(part.id)} > clear field </button>
+      <ChargeForm actions={actions} armsParts={armsParts} part={part} />
     </div>
   }
   return (
