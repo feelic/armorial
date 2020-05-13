@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 
 import {connect} from 'react-redux';
 
-import Arms from './components/Arms';
+import SvgArms from './components/SvgArms/Arms';
 import PartForm from './components/PartForm';
 import styles from './app.module.scss';
 
@@ -17,8 +17,13 @@ class App extends Component {
 
     return (
       <div className={styles.blasonContainer}>
-      <Arms armsParts={parts} />
-      <PartForm actions={actions} armsParts={parts} part={root} />
+        <SvgArms armsParts={parts} />
+        <PartForm actions={actions} armsParts={parts} part={root} />
+        <div>
+        <pre>
+        {JSON.stringify(parts, null, 2)}
+        </pre>
+        </div>
       </div>
     );
   }

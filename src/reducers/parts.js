@@ -19,6 +19,14 @@ export default function reducer(state = initialState, action) {
           field: action.value
         }
       };
+    case types.CHANGE_CHARGE:
+      return {
+        ...state,
+        [action.partId]: {
+          ...state[action.partId],
+          charge: action.value
+        }
+      };
     case types.CHANGE_PARTITION:
       return {
         ...state,
@@ -43,6 +51,14 @@ export default function reducer(state = initialState, action) {
         ...state,
         [action.partId]: {
           id: action.partId
+        }
+      };
+    case types.CLEAR_CHARGE:
+      return {
+        ...state,
+        [action.partId]: {
+          id: action.partId,
+          charge: undefined
         }
       };
     default:

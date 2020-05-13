@@ -1,15 +1,20 @@
 import {partitions} from '../constants';
 import {emptyPart} from '../reducers/parts';
-import uuid from 'uuidv4';
+import * as types from '../constants/action-types';
+
+let partIdx = 0;
 
 export function changeField (partId, value) {
-  return {type: 'CHANGE_FIELD', partId, value};
+  return {type: types.CHANGE_FIELD, partId, value};
+}
+export function changeCharge (partId, value) {
+  return {type: types.CHANGE_CHARGE, partId, value};
 }
 export function changePartition (partId, value) {
   // const partNb = partitions[value].partsNb;
 
   return {
-    type: 'CHANGE_PARTITION',
+    type: types.CHANGE_PARTITION,
     partId,
     value
   }
@@ -18,7 +23,7 @@ export function createPartition (partId, value) {
   const partNb = partitions[value].partsNb;
 
   return {
-    type: 'CREATE_PARTITION',
+    type: types.CREATE_PARTITION,
     partId,
     value,
     parts: new Array(partNb).fill(0).map(makeNewPart).reduce((prev, curr) => {
@@ -29,18 +34,24 @@ export function createPartition (partId, value) {
 export function makeNewPart () {
     return {
       ...emptyPart,
-      id: uuid()
+      id: partIdx += 1
     }
 }
 export function clearField (partId) {
   return {
-    type: 'CLEAR_FIELD',
+    type: types.CLEAR_FIELD,
     partId
   }
 }
 export function clearPartition (partId) {
   return {
-    type: 'CLEAR_PARTITION',
+    type: types.CLEAR_PARTITION,
+    partId
+  }
+}
+export function clearCharge (partId) {
+  return {
+    type: types.CLEAR_CHARGE,
     partId
   }
 }
