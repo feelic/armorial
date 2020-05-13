@@ -89,7 +89,7 @@ function FieldForm(props) {
         onChange={e => actions.changeField(part.id, e.target.value)}
         value={part.field}
       >
-        <option value={null}> </option>
+        <option value="">select a field colour</option>
         {Object.keys(fields).map(field => {
           return (
             <option key={field} value={field}>

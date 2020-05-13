@@ -1,5 +1,5 @@
-import cerfCourant from "./cerf-courant.svg";
+import CerfCourant from "./CerfCourant";
 
 export default {
-  "cerf-courant": cerfCourant
+  "cerf-courant": CerfCourant
 };

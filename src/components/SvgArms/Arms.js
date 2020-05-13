@@ -1,6 +1,7 @@
 import React from "react";
 import { fields } from "../../constants";
 import { Background, Glow, Border } from "./BaseElements";
+import charges from '../charges/index';
 
 import partitionCoordinates from "../../constants/partition-coordinates";
 
@@ -55,6 +56,7 @@ function Part(props) {
   const { field, bounds } = props;
   const { x, y, height, width } = bounds;
   return (
+    <g>
     <rect
       x={x}
       y={y}
@@ -62,5 +64,15 @@ function Part(props) {
       width={width}
       style={{ fill: fields[field] }}
     />
+    <Charge {...props} />
+    </g>
   );
+}
+function Charge(props) {
+  if (! props.charge) {
+    return null;
+  }
+  const ChargeImage = charges[props.charge];
+
+  return <ChargeImage colour={fields[props.chargeColour]} />
 }

@@ -10,6 +10,9 @@ export function changeField (partId, value) {
 export function changeCharge (partId, value) {
   return {type: types.CHANGE_CHARGE, partId, value};
 }
+export function changeChargeColour (partId, value) {
+  return {type: types.CHANGE_CHARGE_COLOUR, partId, value};
+}
 export function changePartition (partId, value) {
   // const partNb = partitions[value].partsNb;
 

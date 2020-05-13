@@ -2,7 +2,10 @@ import * as types from '../constants/action-types';
 
 export const initialState = {
   root: {
-    id: "root"
+    id: "root",
+    "field": "vert",
+    "charge": "cerf-courant",
+    "chargeColour":"or"
   }
 };
 export const emptyPart = {
@@ -27,6 +30,14 @@ export default function reducer(state = initialState, action) {
           charge: action.value
         }
       };
+      case types.CHANGE_CHARGE_COLOUR:
+        return {
+          ...state,
+          [action.partId]: {
+            ...state[action.partId],
+            chargeColour: action.value
+          }
+        };
     case types.CHANGE_PARTITION:
       return {
         ...state,
