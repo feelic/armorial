@@ -1,11 +1,11 @@
 import * as types from '../constants/action-types';
 
 export const initialState = {
-  root: {
-    id: "root",
-    "field": "vert",
+  "root": {
+    "id": "root",
+    "field": "sable",
     "charge": "cerf-courant",
-    "chargeColour":"or"
+    "chargeColour": "or"
   }
 };
 export const emptyPart = {

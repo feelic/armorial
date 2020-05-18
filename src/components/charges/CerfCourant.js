@@ -4,7 +4,7 @@ export default function cerfCourant(props) {
   const {colour} = props;
   return (
     <g
-      transform="scale(1.5) translate(-140,120)"
+      transform="scale(1.5) translate(-160,80)"
       style={{ stroke: "#000000", strokeWidth: 1.5 , fill: colour}}
     >
       <path
