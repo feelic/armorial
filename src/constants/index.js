@@ -1,6 +1,9 @@
 import ermine from "../assets/ermine.svg";
 import vair from "../assets/vair.svg";
 
+export const WIDTH = 600;
+export const HEIGHT = 660;
+
 export const colours = {
   gules: "#E20909",
   azure: "#2B5DF2",
