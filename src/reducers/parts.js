@@ -1,16 +1,14 @@
-import * as types from '../constants/action-types';
+import * as types from "../constants/action-types";
 
 export const initialState = {
-  "root": {
-    "id": "root",
-    "field": "sable",
-    "charge": "cerf-courant",
-    "chargeColour": "or"
+  root: {
+    id: "root",
+    field: "sable",
+    charge: "cerf-courant",
+    chargeColour: "or"
   }
 };
-export const emptyPart = {
-
-};
+export const emptyPart = {};
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
@@ -30,14 +28,14 @@ export default function reducer(state = initialState, action) {
           charge: action.value
         }
       };
-      case types.CHANGE_CHARGE_COLOUR:
-        return {
-          ...state,
-          [action.partId]: {
-            ...state[action.partId],
-            chargeColour: action.value
-          }
-        };
+    case types.CHANGE_CHARGE_COLOUR:
+      return {
+        ...state,
+        [action.partId]: {
+          ...state[action.partId],
+          chargeColour: action.value
+        }
+      };
     case types.CHANGE_PARTITION:
       return {
         ...state,
@@ -57,9 +55,25 @@ export default function reducer(state = initialState, action) {
         ...action.parts
       };
     case types.CLEAR_FIELD:
-    case types.CLEAR_PARTITION:
       return {
         ...state,
+        [action.partId]: {
+          id: action.partId
+        }
+      };
+    case types.CLEAR_PARTITION:
+      const newState = Object.values(state)
+        .filter(part => !action.childrenIds.includes(part.id))
+        .reduce((prev, part) => {
+          return {
+            ...prev,
+            [part.id]: part
+          };
+        }, {});
+
+            debugger;
+      return {
+        ...newState,
         [action.partId]: {
           id: action.partId
         }
@@ -75,4 +89,17 @@ export default function reducer(state = initialState, action) {
     default:
       return state;
   }
+}
+
+export function getChildrenIds(parts, rootId) {
+  const part = parts[rootId];
+
+  if (!part.parts) {
+    return [];
+  }
+
+  return [
+    ...part.parts,
+    ...part.parts.map(child => getChildrenIds(parts, child))
+  ].flat();
 }
