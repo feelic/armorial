@@ -1,4 +1,4 @@
-import { partitions } from "../constants";
+import partitions from "../constants/partitions";
 import { emptyPart,getChildrenIds } from "../reducers/parts";
 import * as types from "../constants/action-types";
 

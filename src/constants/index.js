@@ -20,19 +20,6 @@ export const fields = {
   ...colours,
   ...metals
 };
-export const partitions = {
-  perPale: { id: "perPale", partsNb: 2, label: "per pale" }, // vertical split
-  perFess: { id: "perFess", partsNb: 2, label: "per fess" }, // horizontal split
-  quarterly: { id: "quarterly", partsNb: 4, label: "quarterly" }, // quarter split
-  perBendSinister: {
-    id: "perBendSinister",
-    partsNb: 2,
-    label: "per bend sinister"
-  }, // diagonal split bottom left to top right
-  perBend: { id: "perBend", partsNb: 2, label: "per bend" }, // diagonal split top left to bottom right
-  perSaltire: { id: "perSaltire", partsNb: 4, label: "per saltire" }, // diagonal cross split
-  perChevron: { id: "perChevron", partsNb: 2, label: "per chevron" } // chevron split <:o)
-};
 export const fieldVariations = [
   "paly", // vertical stripes
   "barry", // horizontal stripes

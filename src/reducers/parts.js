@@ -1,11 +1,19 @@
 import * as types from "../constants/action-types";
 
 export const initialState = {
-  root: {
-    id: "root",
-    field: "sable",
-    charge: "cerf-courant",
-    chargeColour: "or"
+  "1": {
+    "id": "1"
+  },
+  "2": {
+    "id": "2"
+  },
+  "root": {
+    "id": "root",
+    "partitionType": "perBendSinister",
+    "parts": [
+      "1",
+      "2"
+    ]
   }
 };
 export const emptyPart = {};

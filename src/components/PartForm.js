@@ -1,5 +1,6 @@
 import React from "react";
-import { fields, colours, metals, partitions } from "../constants";
+import { fields, colours, metals } from "../constants";
+import partitions from "../constants/partitions";
 import ChargeForm from "./ChargeForm";
 import styles from "./PartForm.module.scss";
 

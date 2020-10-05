@@ -2,7 +2,7 @@ import React from "react";
 import Charge from "./Charge";
 
 import { fields } from "../../constants";
-import partitionCoordinates from "../../constants/partition-coordinates";
+import partitions from "../../constants/partitions";
 
 export default function Part(props) {
   if (props.partitionType) {
@@ -27,7 +27,7 @@ export default function Part(props) {
 
 function Partition(props) {
   const { partitionType, parts: partIds, armsParts, bounds } = props;
-  const coord = partitionCoordinates[partitionType](bounds);
+  const coord = partitions[partitionType].coordinates(bounds);
 
   return (
     <g>
