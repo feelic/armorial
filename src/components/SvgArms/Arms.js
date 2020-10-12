@@ -23,7 +23,7 @@ export default function Arms(props) {
         <Part
           armsParts={armsParts}
           {...armsParts.root}
-          bounds={{ x: 0, y: 0, width: WIDTH, height: HEIGHT }}
+          bounds={{ x: 0, y: 0, w: WIDTH, h: HEIGHT }}
         />
       </g>
       <Glow />

@@ -10,14 +10,10 @@ export default function Part(props) {
   }
 
   const { field, bounds } = props;
-  const { x, y, height, width } = bounds;
   return (
     <g>
-      <rect
-        x={x}
-        y={y}
-        height={height}
-        width={width}
+      <polygon
+        points={bounds.map(point => `${point.x} ${point.y}`).join(', ')}
         style={{ fill: fields[field] }}
       />
       <Charge {...props} />

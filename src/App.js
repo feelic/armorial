@@ -17,12 +17,14 @@ class App extends Component {
 
     return (
       <div className={styles.blasonContainer}>
-        <SvgArms armsParts={parts} />
-        <PartForm actions={actions} armsParts={parts} part={root} />
-        <div>
-        <pre>
-        {JSON.stringify(parts, null, 2)}
-        </pre>
+        <div className={styles.block}>
+          <SvgArms armsParts={parts} />
+          <PartForm actions={actions} armsParts={parts} part={root} />
+        </div>
+        <div className={styles.block}>
+          <pre>
+          {JSON.stringify(parts, null, 2)}
+          </pre>
         </div>
       </div>
     );

@@ -1,92 +1,166 @@
 export default {
   perPale: {
-    id: "perPale",
+    id: "perPale", // vertical split
     partsNb: 2,
     label: "per pale",
-    coordinates: function({ x, y, height, width }) {
-      const half = height / 2;
+    coordinates: function ({ x, y, h, w }) {
       return [
-        { x, y, width, height: half },
-        { x, y: half, width, height: half }
+        [
+          { x, y },
+          { x: x + w / 2, y },
+          { x: x + w / 2, y: y + h },
+          { x: x, y: y + h },
+        ],
+        [
+          { x: x + w / 2, y },
+          { x: x + w, y },
+          { x: x + w, y: y + h },
+          { x: x+ w / 2, y: y + h },
+        ],
       ];
-    }
-  }, // vertical split
+    },
+  },
   perFess: {
-    id: "perFess",
+    id: "perFess", // horizontal split
     partsNb: 2,
     label: "per fess",
-    coordinates: function({ x, y, height, width }) {
-      const half = width / 2;
+    coordinates: function ({ x, y, h, w }) {
       return [
-        { x, y, width: half, height },
-        { x: half, y, width: half, height }
+        [
+          { x, y },
+          { x: x + w, y },
+          { x: x + w, y: y + h / 2 },
+          { x: x, y: y + h / 2 },
+        ],
+        [
+          { x: x, y: y + h / 2 },
+          { x: x + w, y: y + h / 2 },
+          { x: x + w, y: y + h },
+          { x: x, y: y + h },
+        ],
       ];
-    }
-  }, // horizontal split
+    },
+  },
   quarterly: {
-    id: "quarterly",
+    id: "quarterly", // quarter split
     partsNb: 4,
     label: "quarterly",
-    coordinates: function({ x, y, height, width }) {
-      const halfH = height / 2;
-      const halfW = width / 2;
+    coordinates: function ({ x, y, h, w }) {
       return [
-        { x, y, width: halfW, height: halfH },
-        { x: halfW, y, width: halfW, height: halfH },
-        { x, y: halfH, width: halfW, height: halfH },
-        { x: halfW, y: halfH, width: halfW, height: halfH }
+        [
+          { x, y },
+          { x: x + w / 2, y },
+          { x: x + w / 2, y: y + h / 2 },
+          { x: x, y: y + h / 2 },
+        ],
+        [
+          { x: x + w / 2, y },
+          { x: x + w, y },
+          { x: x + w, y: y + h / 2 },
+          { x: x+ w / 2, y: y + h / 2 },
+        ],
+        [
+          { x: x, y: y + h / 2 },
+          { x: x + w / 2, y: y + h / 2 },
+          { x: x + w / 2, y: y + h },
+          { x: x, y: y + h },
+        ],
+        [
+          { x: x + w / 2, y: y + h / 2 },
+          { x: x + w, y: y + h / 2 },
+          { x: x + w, y: y + h },
+          { x: x + w / 2, y: y + h },
+        ],
       ];
-    }
-  }, // quarter split
+    },
+  },
   perBendSinister: {
-    id: "perBendSinister",
+    id: "perBendSinister", // diagonal split bottom left to top right
     partsNb: 2,
     label: "per bend sinister",
-    coordinates: function({ x, y, height, width }) {
-      const half = width / 2;
+    coordinates: function ({ x, y, h, w }) {
       return [
-        { x, y, width, height: half },
-        { x, y: half, width, height: half }
+        [
+          { x, y },
+          { x: x + w, y },
+          { x, y: y + h },
+        ],
+        [
+          { x, y: y + h },
+          { x: x + w, y },
+          { x: x + w, y: y + h },
+        ],
       ];
-    }
-  }, // diagonal split bottom left to top right
+    },
+  },
   perBend: {
-    id: "perBend",
+    id: "perBend", // diagonal split top left to bottom right
     partsNb: 2,
     label: "per bend",
-    coordinates: function({ x, y, height, width }) {
-      const half = width / 2;
+    coordinates: function ({ x, y, h, w }) {
       return [
-        { x, y, width, height: half },
-        { x, y: half, width, height: half }
+        [
+          { x, y },
+          { x: x + w, y: y + h },
+          { x, y: y + h },
+        ],
+        [
+          { x, y },
+          { x: x + w, y },
+          { x: x + w, y: y + h },
+        ],
       ];
-    }
-  }, // diagonal split top left to bottom right
+    },
+  },
   perSaltire: {
-    id: "perSaltire",
+    id: "perSaltire", // diagonal cross split
     partsNb: 4,
     label: "per saltire",
-    coordinates: function({ x, y, height, width }) {
-      const halfH = height / 2;
-      const halfW = width / 2;
+    coordinates: function ({ x, y, h, w }) {
       return [
-        { x, y, width: halfW, height: halfH },
-        { x: halfW, y, width: halfW, height: halfH },
-        { x, y: halfH, width: halfW, height: halfH },
-        { x: halfW, y: halfH, width: halfW, height: halfH }
+        [
+          { x, y },
+          { x: x + w, y: y },
+          { x: x + w / 2, y: y + h / 2 },
+        ],
+        [
+          { x, y },
+          { x: x, y: y + h },
+          { x: x + w / 2, y: y + h / 2 },
+        ],
+        [
+          { x: x + w, y: y },
+          { x: x + w, y: y + h },
+          { x: x + w / 2, y: y + h / 2 },
+        ],
+        [
+          { x: x, y: y + h },
+          { x: x + w / 2, y: y + h / 2 },
+          { x: x + w, y: y + h },
+        ],
       ];
-    }
-  }, // diagonal cross split
+    },
+  },
   perChevron: {
+    // chevron split <:o)
     id: "perChevron",
     partsNb: 2,
     label: "per chevron",
-    coordinates: function({ x, y, height, width }) {
-      const half = width / 2;
+    coordinates: function ({ x, y, h, w }) {
       return [
-        { x, y, width: half, height },
-        { x: half, y, width: half, height }
+        [
+          { x: x, y: y },
+          { x: x + w, y: y },
+          { x: x + w, y: y + h },
+          { x: x + w / 2, y: y + h / 2 },
+          { x: x, y: y + h },
+        ],
+        [
+          { x: x, y: y + h },
+          { x: x + w / 2, y: y + h / 2 },
+          { x: x + w, y: y + h },
+        ],
       ];
-    }
-  } // chevron split <:o)
+    },
+  },
 };
