@@ -10,6 +10,11 @@ export default function Part(props) {
   }
 
   const { field, bounds } = props;
+
+  if(!bounds || ! bounds.length) {
+    return null;
+  }
+
   return (
     <g>
       <polygon
