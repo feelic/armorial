@@ -2,9 +2,12 @@ import React from "react";
 import { colours, metals /*, charges*/ } from "../constants";
 import styles from "./PartForm.module.scss";
 import charges from "./charges/index";
+import * as actions from "../actions";
+import { useDispatch } from "react-redux";
 
 export default function ChargeForm(props) {
-  const { actions, armsParts, part } = props;
+  const dispatch = useDispatch();
+  const { armsParts, part } = props;
 
   const fieldColour = part.field;
   const fieldColourType =
@@ -14,7 +17,7 @@ export default function ChargeForm(props) {
   return (
     <div>
       <select
-        onChange={e => actions.changeCharge(part.id, e.target.value)}
+        onChange={e => dispatch(actions.changeCharge(part.id, e.target.value))}
         value={part.charge}
       >
         <option value={null}>none</option>
@@ -27,7 +30,7 @@ export default function ChargeForm(props) {
         })}
       </select>
       <select
-        onChange={e => actions.changeChargeColour(part.id, e.target.value)}
+        onChange={e => dispatch(actions.changeChargeColour(part.id, e.target.value))}
         value={part.chargeColour}
       >
         <option value={null}> </option>

@@ -1,9 +1,21 @@
-export default {
+function getBoundsFromPoints(points) {
+  const xValues = points.map(point => point.x);
+  const yValues = points.map(point => point.y);
+  let minX = Math.min(...xValues);
+  let maxX = Math.max(...xValues);
+  let minY = Math.min(...yValues);
+  let maxY = Math.max(...yValues);
+
+  return { x: minX, y: minY, h: maxY - minY, w: maxX - minX }
+}
+const partitionDefinitions = {
   perPale: {
     id: "perPale", // vertical split
     partsNb: 2,
     label: "per pale",
-    coordinates: function ({ x, y, h, w }) {
+    coordinates: function (points) {
+      const { x, y, h, w } = getBoundsFromPoints(points);
+
       return [
         [
           { x, y },
@@ -24,7 +36,9 @@ export default {
     id: "perFess", // horizontal split
     partsNb: 2,
     label: "per fess",
-    coordinates: function ({ x, y, h, w }) {
+    coordinates: function (points) {
+      const { x, y, h, w } = getBoundsFromPoints(points);
+
       return [
         [
           { x, y },
@@ -45,7 +59,9 @@ export default {
     id: "quarterly", // quarter split
     partsNb: 4,
     label: "quarterly",
-    coordinates: function ({ x, y, h, w }) {
+    coordinates: function (points) {
+      const { x, y, h, w } = getBoundsFromPoints(points);
+
       return [
         [
           { x, y },
@@ -78,7 +94,9 @@ export default {
     id: "perBendSinister", // diagonal split bottom left to top right
     partsNb: 2,
     label: "per bend sinister",
-    coordinates: function ({ x, y, h, w }) {
+    coordinates: function (points) {
+      const { x, y, h, w } = getBoundsFromPoints(points);
+
       return [
         [
           { x, y },
@@ -97,7 +115,9 @@ export default {
     id: "perBend", // diagonal split top left to bottom right
     partsNb: 2,
     label: "per bend",
-    coordinates: function ({ x, y, h, w }) {
+    coordinates: function (points) {
+      const { x, y, h, w } = getBoundsFromPoints(points);
+
       return [
         [
           { x, y },
@@ -116,7 +136,9 @@ export default {
     id: "perSaltire", // diagonal cross split
     partsNb: 4,
     label: "per saltire",
-    coordinates: function ({ x, y, h, w }) {
+    coordinates: function (points) {
+      const { x, y, h, w } = getBoundsFromPoints(points);
+
       return [
         [
           { x, y },
@@ -146,7 +168,9 @@ export default {
     id: "perChevron",
     partsNb: 2,
     label: "per chevron",
-    coordinates: function ({ x, y, h, w }) {
+    coordinates: function (points) {
+      const { x, y, h, w } = getBoundsFromPoints(points);
+
       return [
         [
           { x: x, y: y },
@@ -164,3 +188,5 @@ export default {
     },
   },
 };
+
+export default partitionDefinitions;

@@ -2,7 +2,7 @@ import React from "react";
 import { Background, Glow, Border } from "./BaseElements";
 import Part from "./Part";
 
-import {HEIGHT,WIDTH} from "../../constants/index";
+import { HEIGHT, WIDTH } from "../../constants/index";
 
 export default function Arms(props) {
   const { armsParts } = props;
@@ -23,7 +23,12 @@ export default function Arms(props) {
         <Part
           armsParts={armsParts}
           {...armsParts.root}
-          bounds={{ x: 0, y: 0, w: WIDTH, h: HEIGHT }}
+          bounds={[
+            { x: 0, y: 0 },
+            { x: WIDTH, y: 0 },
+            { x: WIDTH, y: HEIGHT },
+            { x: 0, y: HEIGHT },
+          ]}
         />
       </g>
       <Glow />

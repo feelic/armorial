@@ -1,25 +1,25 @@
 import * as types from "../constants/action-types";
 
 export const initialState = {
-  "1": {
-    id: "1",
-  },
-  "2": {
-    id: "2",
-  },
-  // "3": {
-  //   id: "3",
+  // "1": {
+  //   id: "1",
   // },
-  // "4": {
-  //   id: "4",
+  // "2": {
+  //   id: "2",
   // },
-  root: {
-    id: "root",
-    partitionType: "perFess",
-    parts: ["1", "2"
-    // , "3", "4"
-  ],
-  },
+  // // "3": {
+  // //   id: "3",
+  // // },
+  // // "4": {
+  // //   id: "4",
+  // // },
+  // root: {
+  //   id: "root",
+  //   partitionType: "perFess",
+  //   parts: ["1", "2"
+  //   // , "3", "4"
+  // ],
+  // },
 };
 export const emptyPart = {};
 
@@ -55,7 +55,9 @@ export default function reducer(state = initialState, action) {
         [action.partId]: {
           ...state[action.partId],
           partitionType: action.value,
+          parts: Object.keys(action.parts),
         },
+        ...action.parts,
       };
     case types.CREATE_PARTITION:
       return {
@@ -90,6 +92,16 @@ export default function reducer(state = initialState, action) {
           id: action.partId,
         },
       };
+    case types.DELETE_PARTS:
+      return Object.values(state)
+        .filter((part) => !action.partIds.includes(part.id))
+        .reduce((prev, part) => {
+          return {
+            ...prev,
+            [part.id]: part,
+          };
+        }, {});
+
     case types.CLEAR_CHARGE:
       return {
         ...state,
