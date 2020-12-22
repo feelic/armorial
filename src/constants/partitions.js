@@ -1,4 +1,4 @@
-function getBoundsFromPoints(points) {
+export function getBoundsFromPoints(points) {
   const xValues = points.map(point => point.x);
   const yValues = points.map(point => point.y);
   let minX = Math.min(...xValues);
@@ -49,7 +49,11 @@ const partitionDefinitions = {
         [
           { x: x, y: y + h / 2 },
           { x: x + w, y: y + h / 2 },
-          { x: x + w, y: y + h },
+          { x: x + w, y: y + h },  // const touchUp = (chargeTouchUpByDivision[parentPartitionType] &&
+  //   chargeTouchUpByDivision[parentPartitionType][partitionIndex]) || {
+  //   scale: 1,
+  //   translate: { x: 10, y: 50 }
+  // };
           { x: x, y: y + h },
         ],
       ];
